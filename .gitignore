@@ -208,3 +208,7 @@ __marimo__/
 
 # jetbrains
 .idea
+
+# sqlite
+*.db
+identifier.sqlite

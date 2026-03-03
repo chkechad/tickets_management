@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    container_name: ticket_backend
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
