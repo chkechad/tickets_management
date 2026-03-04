@@ -107,6 +107,12 @@ docker compose up --build
 ```
 
 ### Avec Makefile
+#### Lancer le projet avec docker:
+```shell
+make init
+make env
+make up
+```
 
 ## 📖 Documentation
 
