@@ -73,10 +73,7 @@ init:
 	fi
 	$(MAKE) install
 	@echo ""
-	@echo "✅✅✅ Project ready!"
-	@echo ""
-	@echo "  App      → http://localhost:8000"
-	@echo "  Docs     → http://localhost:8000/docs"
+	@echo "✅✅✅"
 	@echo ""
 # =========================================
 # Docker
