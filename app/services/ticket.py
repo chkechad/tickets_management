@@ -31,7 +31,7 @@ def get_tickets(db: Session) -> list[TicketRead]:
     :return: list[TicketRead] - the list of tickets
     """
     tickets = db.query(Ticket).all()
-    return [TicketRead.model_validate(t) for t in tickets]
+    return [TicketRead.model_validate(ticket) for ticket in tickets]
 
 
 def get_ticket_by_id(ticket_id: uuid.UUID, db: Session) -> TicketRead:
