@@ -15,7 +15,7 @@ router = APIRouter()
 
 
 @router.post("/tickets", status_code=status.HTTP_201_CREATED)  # type: ignore[untyped-decorator]
-async def create_ticket(ticket: TicketCreate, db: Session = Depends(get_db)) -> TicketRead:
+def create_ticket(ticket: TicketCreate, db: Session = Depends(get_db)) -> TicketRead:
     """Create a new ticket.
 
     - **title**: the ticket title
@@ -26,7 +26,7 @@ async def create_ticket(ticket: TicketCreate, db: Session = Depends(get_db)) -> 
 
 
 @router.get("/tickets", status_code=status.HTTP_200_OK)  # type: ignore[untyped-decorator]
-async def get_tickets(db: Session = Depends(get_db)) -> list[TicketRead]:
+def get_tickets(db: Session = Depends(get_db)) -> list[TicketRead]:
     """Get all tickets.
 
     Returns a list of all tickets.
@@ -35,7 +35,7 @@ async def get_tickets(db: Session = Depends(get_db)) -> list[TicketRead]:
 
 
 @router.get("/tickets/{ticket_id}", status_code=status.HTTP_200_OK)  # type: ignore[untyped-decorator]
-async def get_ticket(ticket_id: uuid.UUID, db: Session = Depends(get_db)) -> TicketRead:
+def get_ticket(ticket_id: uuid.UUID, db: Session = Depends(get_db)) -> TicketRead:
     """Get a ticket by id.
 
     - **ticket_id**: the ticket UUID
@@ -44,7 +44,7 @@ async def get_ticket(ticket_id: uuid.UUID, db: Session = Depends(get_db)) -> Tic
 
 
 @router.put("/tickets/{ticket_id}", status_code=status.HTTP_200_OK)  # type: ignore[untyped-decorator]
-async def update_ticket(ticket_id: uuid.UUID, ticket: TicketUpdate, db: Session = Depends(get_db)) -> TicketRead:
+def update_ticket(ticket_id: uuid.UUID, ticket: TicketUpdate, db: Session = Depends(get_db)) -> TicketRead:
     """Update a ticket.
 
     - **ticket_id**: the ticket UUID
@@ -56,7 +56,7 @@ async def update_ticket(ticket_id: uuid.UUID, ticket: TicketUpdate, db: Session 
 
 
 @router.patch("/tickets/{ticket_id}/close", status_code=status.HTTP_200_OK)  # type: ignore[untyped-decorator]
-async def close_ticket(ticket_id: uuid.UUID, db: Session = Depends(get_db)) -> TicketRead:
+def close_ticket(ticket_id: uuid.UUID, db: Session = Depends(get_db)) -> TicketRead:
     """Close a ticket.
 
     - **ticket_id**: the ticket UUID to close

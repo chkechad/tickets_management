@@ -16,7 +16,7 @@ class TicketCreateUpdate(BaseModel):  # type: ignore[misc]
     """Ticket CreateUpdate."""
 
     title: str
-    description: str
+    description: str | None = None
     status: TicketStatus = TicketStatus.OPEN
 
     @field_validator("title", mode="before")
@@ -33,10 +33,6 @@ class TicketCreate(TicketCreateUpdate):  # type: ignore[misc]
 
 class TicketUpdate(TicketCreateUpdate):  # type: ignore[misc]
     """Ticket update."""
-
-    title: str
-    description: str | None = None
-    status: TicketStatus | None = None
 
 
 class TicketRead(BaseReadSchemaMixin):
