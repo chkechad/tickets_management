@@ -18,6 +18,7 @@ class LoggingMiddleware(BaseHTTPMiddleware):  # type: ignore[misc]
         response = await call_next(request)
         duration = time.perf_counter() - start_time
         logger.info(
-            f"Méthode={request.method} URL={request.url.path} Statut={response.status_code} Durée={duration:.3f}s"
+            f"Middleware Tickets: Méthode={request.method} URL={request.url.path} "
+            f"Statut={response.status_code} Durée={duration:.3f}s"
         )
         return response
